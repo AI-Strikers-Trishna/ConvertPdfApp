@@ -28,4 +28,26 @@
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
+    <div class="col-md-8">
+        <div id="PrintPDF">
+            <h1>This section is going to be printed in PDF</h1>
+        </div>
+        <br />
+
+        @using (Html.BeginForm("Export", "Home", FormMethod.Post))
+        {
+            <input type="hidden" name="ExportData" />
+            <input type="submit" id="btnSubmit" value="Export" />
+        }
+        <p><a href="https://www.completecsharptutorial.com/mvc-articles/create-and-download-pdf-in-aspnet-mvc5.php">Reference link</a></p>
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $("#btnSubmit").click(function () {
+                    $("input[name='ExportData']").val($("#PrintPDF").html());
+                });
+            });
+        </script>
+    </div>
 </div>
